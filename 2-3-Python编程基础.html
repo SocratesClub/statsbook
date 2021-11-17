@@ -1,0 +1,921 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第 2 章 Python 与 Jupyter Notebook 基础｜用 Python 动手学统计学 &#8212; Stats Book</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="第 2 章 Python 与 Jupyter Notebook 基础｜用 Python 动手学统计学" href="2-4-%E8%AE%A4%E8%AF%86numpy%E4%B8%8Epandas.html" />
+    <link rel="prev" title="第 2 章 Python 与 Jupyter Notebook 基础｜用 Python 动手学统计学" href="2-2-%E8%AE%A4%E8%AF%86Jupyter-Notebook.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Stats Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   statsbook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Part 1
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-2-%E8%AE%A4%E8%AF%86Jupyter-Notebook.html">
+   第 2 章　Python 与 Jupyter Notebook 基础｜用 Python 动手学统计学
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="3-1-%E4%BD%BF%E7%94%A8Python%E8%BF%9B%E8%A1%8C%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%8D%95%E5%8F%98%E9%87%8F.html">
+   第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-2-%E4%BD%BF%E7%94%A8Python%E8%BF%9B%E8%A1%8C%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%A4%9A%E5%8F%98%E9%87%8F.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-3-%E5%9F%BA%E4%BA%8Ematplotlib-seaborn%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-4-%E7%94%A8Python%E6%A8%A1%E6%8B%9F%E6%8A%BD%E6%A0%B7.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-5-%E6%A0%B7%E6%9C%AC%E7%BB%9F%E8%AE%A1%E9%87%8F%E7%9A%84%E6%80%A7%E8%B4%A8.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-6-%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-7-%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-8-%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-9-%E5%9D%87%E5%80%BC%E5%B7%AE%E7%9A%84%E6%A3%80%E9%AA%8C.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-10-%E5%88%97%E8%81%94%E8%A1%A8%E6%A3%80%E9%AA%8C.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Part 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="5-1-%E4%B8%80%E5%85%83%E5%9B%9E%E5%BD%92.html">
+   第 5 章　正态线性模型｜用 Python 动手学统计学
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-2-%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90.html">
+     第 5 章　正态线性模型｜用 Python 动手学统计学
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="6-1-%E5%90%84%E7%A7%8D%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83.html">
+   第 6 章　广义线性模型｜用 Python 动手学统计学
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-3-logistic%E5%9B%9E%E5%BD%92.html">
+     第 6 章　广义线性模型｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-4-%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0.html">
+     第 6 章　广义线性模型｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-5-%E6%B3%8A%E6%9D%BE%E5%9B%9E%E5%BD%92.html">
+     第 6 章　广义线性模型｜用 Python 动手学统计学
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7-4-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html">
+   第 7 章　统计学与机器学习｜用 Python 动手学统计学
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/2-3-Python编程基础.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/2-3-Python编程基础.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python">
+   第 3 节　Python 编程基础
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     1. 实现：四则运算
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     2. 实现：编写注释
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     3. 实现：数据类型
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     4. 实现：比较运算符
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     5. 实现：变量
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     6. 实现：函数
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     7. 实现：类与实例
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#if">
+     8. 实现：基于 if 语句的程序分支
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for">
+     9. 实现：基于 for 语句的循环
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="python-jupyter-notebook-python">
+<h1>第 2 章　Python 与 Jupyter Notebook 基础｜用 Python 动手学统计学<a class="headerlink" href="#python-jupyter-notebook-python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="python">
+<h2>第 3 节　Python 编程基础<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>1. 实现：四则运算<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">-</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span> <span class="o">/</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span> <span class="o">//</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>2. 实现：编写注释<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1 + 1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>3. 实现：数据类型<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;A&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;A&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;A&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;A&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 字符串</span>
+<span class="nb">type</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 整型</span>
+<span class="nb">type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 浮点型</span>
+<span class="nb">type</span><span class="p">(</span><span class="mf">2.4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 布尔型</span>
+<span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 布尔型</span>
+<span class="nb">type</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;A&quot;</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="mi">8</span><span class="n">c1ba8ce860b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="s2">&quot;A&quot;</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>4. 实现：比较运算符<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mf">0.89</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">&gt;=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">&lt;=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">==</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">!=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>5. 实现：变量<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>6. 实现：函数<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sample_function</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">return</span><span class="p">((</span><span class="n">data</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_function</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">sample_function</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>7. 实现：类与实例<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Sample_Class</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data1</span> <span class="o">=</span> <span class="n">data1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data2</span> <span class="o">=</span> <span class="n">data2</span>
+        
+    <span class="k">def</span> <span class="nf">method2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">data2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_instance</span> <span class="o">=</span> <span class="n">Sample_Class</span><span class="p">(</span><span class="n">data1</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">data2</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_instance</span><span class="o">.</span><span class="n">data1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_instance</span><span class="o">.</span><span class="n">method2</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="if">
+<h3>8. 实现：基于 if 语句的程序分支<a class="headerlink" href="#if" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">if</span><span class="p">(</span><span class="n">data</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;数字小于 2&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;数字不小于 2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>数字小于 2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">if</span><span class="p">(</span><span class="n">data</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;数字小于 2&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;数字不小于 2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>数字不小于 2
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="for">
+<h3>9. 实现：基于 for 语句的循环<a class="headerlink" href="#for" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>range(0, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello
+hello
+hello
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="2-2-%E8%AE%A4%E8%AF%86Jupyter-Notebook.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">第 2 章　Python 与 Jupyter Notebook 基础｜用 Python 动手学统计学</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="2-4-%E8%AE%A4%E8%AF%86numpy%E4%B8%8Epandas.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">第 2 章　Python 与 Jupyter Notebook 基础｜用 Python 动手学统计学</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,1179 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第 5 章 正态线性模型｜用 Python 动手学统计学 &#8212; Stats Book</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="第 5 章 正态线性模型｜用 Python 动手学统计学" href="5-2-%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90.html" />
+    <link rel="prev" title="第 3 章 使用 Pyhton 进行数据分析｜用 Python 动手学统计学" href="3-10-%E5%88%97%E8%81%94%E8%A1%A8%E6%A3%80%E9%AA%8C.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Stats Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   statsbook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Part 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-2-%E8%AE%A4%E8%AF%86Jupyter-Notebook.html">
+   第 2 章　Python 与 Jupyter Notebook 基础｜用 Python 动手学统计学
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="3-1-%E4%BD%BF%E7%94%A8Python%E8%BF%9B%E8%A1%8C%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%8D%95%E5%8F%98%E9%87%8F.html">
+   第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-2-%E4%BD%BF%E7%94%A8Python%E8%BF%9B%E8%A1%8C%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%A4%9A%E5%8F%98%E9%87%8F.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-3-%E5%9F%BA%E4%BA%8Ematplotlib-seaborn%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-4-%E7%94%A8Python%E6%A8%A1%E6%8B%9F%E6%8A%BD%E6%A0%B7.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-5-%E6%A0%B7%E6%9C%AC%E7%BB%9F%E8%AE%A1%E9%87%8F%E7%9A%84%E6%80%A7%E8%B4%A8.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-6-%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-7-%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-8-%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-9-%E5%9D%87%E5%80%BC%E5%B7%AE%E7%9A%84%E6%A3%80%E9%AA%8C.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-10-%E5%88%97%E8%81%94%E8%A1%A8%E6%A3%80%E9%AA%8C.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Part 2
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   第 5 章　正态线性模型｜用 Python 动手学统计学
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-2-%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90.html">
+     第 5 章　正态线性模型｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-3-%E5%90%AB%E6%9C%89%E5%A4%9A%E4%B8%AA%E8%A7%A3%E9%87%8A%E5%8F%98%E9%87%8F%E7%9A%84%E6%A8%A1%E5%9E%8B.html">
+     第 5 章　正态线性模型｜用 Python 动手学统计学
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="6-1-%E5%90%84%E7%A7%8D%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83.html">
+   第 6 章　广义线性模型｜用 Python 动手学统计学
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-3-logistic%E5%9B%9E%E5%BD%92.html">
+     第 6 章　广义线性模型｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-4-%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0.html">
+     第 6 章　广义线性模型｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-5-%E6%B3%8A%E6%9D%BE%E5%9B%9E%E5%BD%92.html">
+     第 6 章　广义线性模型｜用 Python 动手学统计学
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7-4-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html">
+   第 7 章　统计学与机器学习｜用 Python 动手学统计学
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/5-1-一元回归.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/5-1-一元回归.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   第 1 节　含有单个连续型解释变量的模型（一元回归）
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     1. 环境准备
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     2. 实现：读入数据并绘制其图形
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statsmodels">
+     4. 实现：使用 statsmodels 实现模型化
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     5. 实现：打印估计结果并检验系数
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aic">
+     7. 实现：使用 AIC 进行模型选择
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seaborn">
+     9. 实现：用 seaborn 绘制回归直线
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     10. 实现：使用模型进行预测
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     11. 实现：获取残差
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     13. 实现：决定系数
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     15. 实现：修正决定系数
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     16. 实现：残差的直方图和散点图
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     18. 实现：分位图
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary">
+     19. 根据 summary 函数的输出分析残差
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="python">
+<h1>第 5 章　正态线性模型｜用 Python 动手学统计学<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>第 1 节　含有单个连续型解释变量的模型（一元回归）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>1. 环境准备<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 用于数值计算的库</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="c1"># 用于绘图的库</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
+<span class="c1"># 用于估计统计模型的库 (部分版本会报出警告信息)</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="c1"># 设置浮点数打印精度</span>
+<span class="o">%</span><span class="k">precision</span> 3
+<span class="c1"># 在 Jupyter Notebook 里显示图形</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>2. 实现：读入数据并绘制其图形<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 读入数据</span>
+<span class="n">beer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;5-1-1-beer.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">beer</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   beer  temperature
+0  45.3         20.5
+1  59.3         25.0
+2  40.4         10.0
+3  38.0         26.9
+4  37.0         15.8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 绘制图像</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;beer&quot;</span><span class="p">,</span> 
+              <span class="n">data</span> <span class="o">=</span> <span class="n">beer</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x1111469d0&gt;
+</pre></div>
+</div>
+<img alt="_images/5-1-一元回归_5_1.png" src="_images/5-1-一元回归_5_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="statsmodels">
+<h3>4. 实现：使用 statsmodels 实现模型化<a class="headerlink" href="#statsmodels" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 建模</span>
+<span class="n">lm_model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span> <span class="o">=</span> <span class="s2">&quot;beer ~ temperature&quot;</span><span class="p">,</span> 
+                   <span class="n">data</span> <span class="o">=</span> <span class="n">beer</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>5. 实现：打印估计结果并检验系数<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 打印估计的结果</span>
+<span class="n">lm_model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>          <td>beer</td>       <th>  R-squared:         </th> <td>   0.504</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.486</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   28.45</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Wed, 17 Nov 2021</td> <th>  Prob (F-statistic):</th> <td>1.11e-05</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>17:19:28</td>     <th>  Log-Likelihood:    </th> <td> -102.45</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>    30</td>      <th>  AIC:               </th> <td>   208.9</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>    28</td>      <th>  BIC:               </th> <td>   211.7</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+       <td></td>          <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>Intercept</th>   <td>   34.6102</td> <td>    3.235</td> <td>   10.699</td> <td> 0.000</td> <td>   27.984</td> <td>   41.237</td>
+</tr>
+<tr>
+  <th>temperature</th> <td>    0.7654</td> <td>    0.144</td> <td>    5.334</td> <td> 0.000</td> <td>    0.471</td> <td>    1.059</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td> 0.587</td> <th>  Durbin-Watson:     </th> <td>   1.960</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.746</td> <th>  Jarque-Bera (JB):  </th> <td>   0.290</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td>-0.240</td> <th>  Prob(JB):          </th> <td>   0.865</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 2.951</td> <th>  Cond. No.          </th> <td>    52.5</td>
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</div>
+</div>
+<div class="section" id="aic">
+<h3>7. 实现：使用 AIC 进行模型选择<a class="headerlink" href="#aic" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 空模型</span>
+<span class="n">null_model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s2">&quot;beer ~ 1&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">beer</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 空模型的 AIC</span>
+<span class="n">null_model</span><span class="o">.</span><span class="n">aic</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>227.94194972563105
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 含有解释变量的模型的 AIC</span>
+<span class="n">lm_model</span><span class="o">.</span><span class="n">aic</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>208.90902935575437
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 对数似然度</span>
+<span class="n">lm_model</span><span class="o">.</span><span class="n">llf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-102.45451467787719
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 解释变量的个数</span>
+<span class="n">lm_model</span><span class="o">.</span><span class="n">df_model</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># AIC</span>
+<span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">lm_model</span><span class="o">.</span><span class="n">llf</span> <span class="o">-</span> <span class="p">(</span><span class="n">lm_model</span><span class="o">.</span><span class="n">df_model</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>208.90902935575437
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="seaborn">
+<h3>9. 实现：用 seaborn 绘制回归直线<a class="headerlink" href="#seaborn" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;beer&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">beer</span><span class="p">,</span>
+           <span class="n">scatter_kws</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">},</span>
+           <span class="n">line_kws</span>    <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x239bbea90&gt;
+</pre></div>
+</div>
+<img alt="_images/5-1-一元回归_18_1.png" src="_images/5-1-一元回归_18_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>10. 实现：使用模型进行预测<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 拟合值</span>
+<span class="n">lm_model</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([50.301, 53.746, 42.264, 55.2  , 46.704, 37.825, 44.943, 54.511,
+       52.445, 41.116, 54.664, 49.23 , 53.21 , 52.445, 41.04 , 52.598,
+       45.25 , 61.783, 55.43 , 50.301, 42.418, 50.301, 51.143, 40.657,
+       66.911, 52.904, 62.854, 41.423, 62.472, 39.509])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 预测</span>
+<span class="n">lm_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;temperature&quot;</span><span class="p">:[</span><span class="mi">0</span><span class="p">]}))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    34.610215
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 气温为 0 度时的预测值等于截距</span>
+<span class="n">lm_model</span><span class="o">.</span><span class="n">params</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intercept      34.610215
+temperature     0.765428
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 预测</span>
+<span class="n">lm_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;temperature&quot;</span><span class="p">:[</span><span class="mi">20</span><span class="p">]}))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    49.918767
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 不使用 predict 函数进行预测</span>
+<span class="n">beta0</span> <span class="o">=</span> <span class="n">lm_model</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">beta1</span> <span class="o">=</span> <span class="n">lm_model</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">temperature</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="n">beta0</span> <span class="o">+</span> <span class="n">beta1</span> <span class="o">*</span> <span class="n">temperature</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49.91876701095054
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>11. 实现：获取残差<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 获得残差</span>
+<span class="n">resid</span> <span class="o">=</span> <span class="n">lm_model</span><span class="o">.</span><span class="n">resid</span>
+<span class="n">resid</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -5.001481
+1    5.554095
+2   -1.864491
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 计算拟合值</span>
+<span class="n">y_hat</span> <span class="o">=</span> <span class="n">beta0</span> <span class="o">+</span> <span class="n">beta1</span> <span class="o">*</span> <span class="n">beer</span><span class="o">.</span><span class="n">temperature</span>
+<span class="n">y_hat</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    50.301481
+1    53.745905
+2    42.264491
+Name: temperature, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 获得拟合值</span>
+<span class="n">lm_model</span><span class="o">.</span><span class="n">fittedvalues</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    50.301481
+1    53.745905
+2    42.264491
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 手动计算残差</span>
+<span class="p">(</span><span class="n">beer</span><span class="o">.</span><span class="n">beer</span> <span class="o">-</span> <span class="n">y_hat</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0   -5.001481
+1    5.554095
+2   -1.864491
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>13. 实现：决定系数<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 决定系数</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">beer</span><span class="o">.</span><span class="n">beer</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">beer</span><span class="o">.</span><span class="n">beer</span>
+<span class="n">yhat</span> <span class="o">=</span> <span class="n">lm_model</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
+
+<span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">yhat</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:2: DeprecationWarning: scipy.mean is deprecated and will be removed in SciPy 2.0.0, use numpy.mean instead
+  
+/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:6: DeprecationWarning: scipy.sum is deprecated and will be removed in SciPy 2.0.0, use numpy.sum instead
+  
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5039593230611867
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lm_model</span><span class="o">.</span><span class="n">rsquared</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5039593230611858
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">yhat</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="n">resid</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:1: DeprecationWarning: scipy.sum is deprecated and will be removed in SciPy 2.0.0, use numpy.sum instead
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3277.114666666669
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:1: DeprecationWarning: scipy.sum is deprecated and will be removed in SciPy 2.0.0, use numpy.sum instead
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3277.1146666666664
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">-</span> <span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">resid</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:1: DeprecationWarning: scipy.sum is deprecated and will be removed in SciPy 2.0.0, use numpy.sum instead
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.503959323061186
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>15. 实现：修正决定系数<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">beer</span><span class="o">.</span><span class="n">beer</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="mi">1</span> <span class="o">-</span> <span class="p">((</span><span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">resid</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">s</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> 
+    <span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:3: DeprecationWarning: scipy.sum is deprecated and will be removed in SciPy 2.0.0, use numpy.sum instead
+  This is separate from the ipykernel package so we can avoid doing imports until
+/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:4: DeprecationWarning: scipy.sum is deprecated and will be removed in SciPy 2.0.0, use numpy.sum instead
+  after removing the cwd from sys.path.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.48624358459908545
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lm_model</span><span class="o">.</span><span class="n">rsquared_adj</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.48624358459908534
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>16. 实现：残差的直方图和散点图<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 残差的直方图</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/seaborn/distributions.py:2557: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+  warnings.warn(msg, FutureWarning)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/5-1-一元回归_40_2.png" src="_images/5-1-一元回归_40_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 残差的散点图</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">lm_model</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">,</span> <span class="n">resid</span><span class="p">,</span> 
+              <span class="n">joint_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">},</span> 
+              <span class="n">marginal_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/seaborn/_decorators.py:43: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+  FutureWarning
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x239e0ca90&gt;
+</pre></div>
+</div>
+<img alt="_images/5-1-一元回归_41_2.png" src="_images/5-1-一元回归_41_2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>18. 实现：分位图<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 分位图</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">line</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5-1-一元回归_43_0.png" src="_images/5-1-一元回归_43_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 递增排列</span>
+<span class="n">resid_sort</span> <span class="o">=</span> <span class="n">resid</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+<span class="n">resid_sort</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3    -17.200217
+21   -14.501481
+12    -9.710106
+4     -9.703971
+10    -7.664418
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 最小的数据所在位置</span>
+<span class="mi">1</span> <span class="o">/</span> <span class="mi">31</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.032
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 按样本容量变换为 0 到 1 的范围, 得到理论累积概率</span>
+<span class="c1"># </span>
+<span class="n">nobs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">resid_sort</span><span class="p">)</span>
+<span class="n">cdf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nobs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">nobs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">cdf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.032, 0.065, 0.097, 0.129, 0.161, 0.194, 0.226, 0.258, 0.29 ,
+       0.323, 0.355, 0.387, 0.419, 0.452, 0.484, 0.516, 0.548, 0.581,
+       0.613, 0.645, 0.677, 0.71 , 0.742, 0.774, 0.806, 0.839, 0.871,
+       0.903, 0.935, 0.968])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 累积概率对应的百分位数</span>
+<span class="n">ppf</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">cdf</span><span class="p">)</span>
+<span class="n">ppf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.849, -1.518, -1.3  , -1.131, -0.989, -0.865, -0.753, -0.649,
+       -0.552, -0.46 , -0.372, -0.287, -0.204, -0.122, -0.04 ,  0.04 ,
+        0.122,  0.204,  0.287,  0.372,  0.46 ,  0.552,  0.649,  0.753,
+        0.865,  0.989,  1.131,  1.3  ,  1.518,  1.849])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 参考: 横轴为理论分位数, 纵轴为已排序的实际数据, 绘出的散点图就是分位图</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">line</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">cdf</span><span class="p">),</span> <span class="n">resid_sort</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x23c353d90&gt;]
+</pre></div>
+</div>
+<img alt="_images/5-1-一元回归_48_1.png" src="_images/5-1-一元回归_48_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="summary">
+<h3>19. 根据 summary 函数的输出分析残差<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 打印估计的结果</span>
+<span class="n">lm_model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>          <td>beer</td>       <th>  R-squared:         </th> <td>   0.504</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.486</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   28.45</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Wed, 17 Nov 2021</td> <th>  Prob (F-statistic):</th> <td>1.11e-05</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>17:19:29</td>     <th>  Log-Likelihood:    </th> <td> -102.45</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>    30</td>      <th>  AIC:               </th> <td>   208.9</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>    28</td>      <th>  BIC:               </th> <td>   211.7</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+       <td></td>          <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>Intercept</th>   <td>   34.6102</td> <td>    3.235</td> <td>   10.699</td> <td> 0.000</td> <td>   27.984</td> <td>   41.237</td>
+</tr>
+<tr>
+  <th>temperature</th> <td>    0.7654</td> <td>    0.144</td> <td>    5.334</td> <td> 0.000</td> <td>    0.471</td> <td>    1.059</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td> 0.587</td> <th>  Durbin-Watson:     </th> <td>   1.960</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.746</td> <th>  Jarque-Bera (JB):  </th> <td>   0.290</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td>-0.240</td> <th>  Prob(JB):          </th> <td>   0.865</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 2.951</td> <th>  Cond. No.          </th> <td>    52.5</td>
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="3-10-%E5%88%97%E8%81%94%E8%A1%A8%E6%A3%80%E9%AA%8C.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="5-2-%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">第 5 章　正态线性模型｜用 Python 动手学统计学</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

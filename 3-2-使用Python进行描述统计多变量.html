@@ -1,0 +1,809 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第 3 章 使用 Pyhton 进行数据分析｜用 Python 动手学统计学 &#8212; Stats Book</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="第 3 章 使用 Pyhton 进行数据分析｜用 Python 动手学统计学" href="3-3-%E5%9F%BA%E4%BA%8Ematplotlib-seaborn%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96.html" />
+    <link rel="prev" title="第 3 章 使用 Pyhton 进行数据分析｜用 Python 动手学统计学" href="3-1-%E4%BD%BF%E7%94%A8Python%E8%BF%9B%E8%A1%8C%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%8D%95%E5%8F%98%E9%87%8F.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Stats Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   statsbook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Part 1
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-2-%E8%AE%A4%E8%AF%86Jupyter-Notebook.html">
+   第 2 章　Python 与 Jupyter Notebook 基础｜用 Python 动手学统计学
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="3-1-%E4%BD%BF%E7%94%A8Python%E8%BF%9B%E8%A1%8C%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%8D%95%E5%8F%98%E9%87%8F.html">
+   第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-3-%E5%9F%BA%E4%BA%8Ematplotlib-seaborn%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-4-%E7%94%A8Python%E6%A8%A1%E6%8B%9F%E6%8A%BD%E6%A0%B7.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-5-%E6%A0%B7%E6%9C%AC%E7%BB%9F%E8%AE%A1%E9%87%8F%E7%9A%84%E6%80%A7%E8%B4%A8.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-6-%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-7-%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-8-%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-9-%E5%9D%87%E5%80%BC%E5%B7%AE%E7%9A%84%E6%A3%80%E9%AA%8C.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-10-%E5%88%97%E8%81%94%E8%A1%A8%E6%A3%80%E9%AA%8C.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Part 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="5-1-%E4%B8%80%E5%85%83%E5%9B%9E%E5%BD%92.html">
+   第 5 章　正态线性模型｜用 Python 动手学统计学
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-2-%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90.html">
+     第 5 章　正态线性模型｜用 Python 动手学统计学
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="6-1-%E5%90%84%E7%A7%8D%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83.html">
+   第 6 章　广义线性模型｜用 Python 动手学统计学
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-3-logistic%E5%9B%9E%E5%BD%92.html">
+     第 6 章　广义线性模型｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-4-%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0.html">
+     第 6 章　广义线性模型｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-5-%E6%B3%8A%E6%9D%BE%E5%9B%9E%E5%BD%92.html">
+     第 6 章　广义线性模型｜用 Python 动手学统计学
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7-4-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html">
+   第 7 章　统计学与机器学习｜用 Python 动手学统计学
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/3-2-使用Python进行描述统计多变量.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/3-2-使用Python进行描述统计多变量.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python">
+   第 2 节　使用 Python 进行描述统计：多变量
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     4. 多变量数据的管理
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     5. 实现：求各分组的统计量
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     6. 实现：列联表
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     9. 实现：协方差
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     10. 实现：协方差矩阵
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     13. 实现：皮尔逊积矩相关系数
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="pyhton-python">
+<h1>第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学<a class="headerlink" href="#pyhton-python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="python">
+<h2>第 2 节　使用 Python 进行描述统计：多变量<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>4. 多变量数据的管理<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 用于数值计算的库</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+
+<span class="c1"># 设置浮点数打印精度</span>
+<span class="o">%</span><span class="k">precision</span> 3
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;%.3f&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>5. 实现：求各分组的统计量<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fish_multi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;3-2-1-fish_multi.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fish_multi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  species  length
+0       A       2
+1       A       3
+2       A       4
+3       B       6
+4       B       8
+5       B      10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 按鱼的种类计算</span>
+<span class="n">group</span> <span class="o">=</span> <span class="n">fish_multi</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         length
+species        
+A             3
+B             8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         length
+species        
+A           1.0
+B           2.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="8" halign="left">length</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.5</td>
+      <td>3.0</td>
+      <td>3.5</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>3.0</td>
+      <td>8.0</td>
+      <td>2.0</td>
+      <td>6.0</td>
+      <td>7.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+      <td>10.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>6. 实现：列联表<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shoes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;3-2-2-shoes.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">shoes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   store color  sales
+0  tokyo  blue     10
+1  tokyo   red     15
+2  osaka  blue     13
+3  osaka   red      9
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cross</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">shoes</span><span class="p">,</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="s2">&quot;sales&quot;</span><span class="p">,</span>
+    <span class="n">aggfunc</span> <span class="o">=</span> <span class="s2">&quot;sum&quot;</span><span class="p">,</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="s2">&quot;store&quot;</span><span class="p">,</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="s2">&quot;color&quot;</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cross</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>color  blue  red
+store           
+osaka    13    9
+tokyo    10   15
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>9. 实现：协方差<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cov_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;3-2-3-cov.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cov_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      x   y
+0  18.5  34
+1  18.7  39
+2  19.1  41
+3  19.7  38
+4  21.5  45
+5  21.7  41
+6  21.8  52
+7  22.0  44
+8  23.4  44
+9  23.8  49
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 读取数据的列</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">cov_data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">cov_data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+
+<span class="c1"># 求样本容量</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cov_data</span><span class="p">)</span>
+
+<span class="c1"># 求各变量均值</span>
+<span class="n">mu_x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">mu_y</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:9: DeprecationWarning: scipy.mean is deprecated and will be removed in SciPy 2.0.0, use numpy.mean instead
+  if __name__ == &#39;__main__&#39;:
+/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:10: DeprecationWarning: scipy.mean is deprecated and will be removed in SciPy 2.0.0, use numpy.mean instead
+  # Remove the CWD from sys.path while we load stuff.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 样本协方差</span>
+<span class="n">cov_sample</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu_x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">mu_y</span><span class="p">))</span> <span class="o">/</span> <span class="n">N</span>
+<span class="n">cov_sample</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.906
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 协方差</span>
+<span class="n">cov</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu_x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">mu_y</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">cov</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.673
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>10. 实现：协方差矩阵<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 样本协方差</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ddof</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:2: DeprecationWarning: scipy.cov is deprecated and will be removed in SciPy 2.0.0, use numpy.cov instead
+  
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 3.282,  6.906],
+       [ 6.906, 25.21 ]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 无偏协方差</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ddof</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:2: DeprecationWarning: scipy.cov is deprecated and will be removed in SciPy 2.0.0, use numpy.cov instead
+  
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 3.646,  7.673],
+       [ 7.673, 28.011]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>13. 实现：皮尔逊积矩相关系数<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 计算两个变量的方差</span>
+<span class="n">sigma_2_x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ddof</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">sigma_2_y</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">ddof</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 计算相关系数</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="n">cov</span> <span class="o">/</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigma_2_x</span> <span class="o">*</span> <span class="n">sigma_2_y</span><span class="p">)</span>
+<span class="n">rho</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:2: DeprecationWarning: scipy.var is deprecated and will be removed in SciPy 2.0.0, use numpy.var instead
+  
+/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:3: DeprecationWarning: scipy.var is deprecated and will be removed in SciPy 2.0.0, use numpy.var instead
+  This is separate from the ipykernel package so we can avoid doing imports until
+/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:6: DeprecationWarning: scipy.sqrt is deprecated and will be removed in SciPy 2.0.0, use numpy.lib.scimath.sqrt instead
+  
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7592719041137088
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 计算两个变量的方差</span>
+<span class="n">sigma_2_x_sample</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ddof</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">sigma_2_y_sample</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">ddof</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># 计算相关系数</span>
+<span class="n">cov_sample</span> <span class="o">/</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigma_2_x_sample</span> <span class="o">*</span> <span class="n">sigma_2_y_sample</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:2: DeprecationWarning: scipy.var is deprecated and will be removed in SciPy 2.0.0, use numpy.var instead
+  
+/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:3: DeprecationWarning: scipy.var is deprecated and will be removed in SciPy 2.0.0, use numpy.var instead
+  This is separate from the ipykernel package so we can avoid doing imports until
+/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:6: DeprecationWarning: scipy.sqrt is deprecated and will be removed in SciPy 2.0.0, use numpy.lib.scimath.sqrt instead
+  
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7592719041137087
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 相关矩阵</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:2: DeprecationWarning: scipy.corrcoef is deprecated and will be removed in SciPy 2.0.0, use numpy.corrcoef instead
+  
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.   , 0.759],
+       [0.759, 1.   ]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="3-1-%E4%BD%BF%E7%94%A8Python%E8%BF%9B%E8%A1%8C%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%8D%95%E5%8F%98%E9%87%8F.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="3-3-%E5%9F%BA%E4%BA%8Ematplotlib-seaborn%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,1327 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第 2 章 Python 与 Jupyter Notebook 基础｜用 Python 动手学统计学 &#8212; Stats Book</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="第 3 章 使用 Pyhton 进行数据分析｜用 Python 动手学统计学" href="3-1-%E4%BD%BF%E7%94%A8Python%E8%BF%9B%E8%A1%8C%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%8D%95%E5%8F%98%E9%87%8F.html" />
+    <link rel="prev" title="第 2 章 Python 与 Jupyter Notebook 基础｜用 Python 动手学统计学" href="2-3-Python%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Stats Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   statsbook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Part 1
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-2-%E8%AE%A4%E8%AF%86Jupyter-Notebook.html">
+   第 2 章　Python 与 Jupyter Notebook 基础｜用 Python 动手学统计学
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="3-1-%E4%BD%BF%E7%94%A8Python%E8%BF%9B%E8%A1%8C%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%8D%95%E5%8F%98%E9%87%8F.html">
+   第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-2-%E4%BD%BF%E7%94%A8Python%E8%BF%9B%E8%A1%8C%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%A4%9A%E5%8F%98%E9%87%8F.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-3-%E5%9F%BA%E4%BA%8Ematplotlib-seaborn%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-4-%E7%94%A8Python%E6%A8%A1%E6%8B%9F%E6%8A%BD%E6%A0%B7.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-5-%E6%A0%B7%E6%9C%AC%E7%BB%9F%E8%AE%A1%E9%87%8F%E7%9A%84%E6%80%A7%E8%B4%A8.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-6-%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-7-%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-8-%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-9-%E5%9D%87%E5%80%BC%E5%B7%AE%E7%9A%84%E6%A3%80%E9%AA%8C.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-10-%E5%88%97%E8%81%94%E8%A1%A8%E6%A3%80%E9%AA%8C.html">
+     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Part 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="5-1-%E4%B8%80%E5%85%83%E5%9B%9E%E5%BD%92.html">
+   第 5 章　正态线性模型｜用 Python 动手学统计学
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-2-%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90.html">
+     第 5 章　正态线性模型｜用 Python 动手学统计学
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="6-1-%E5%90%84%E7%A7%8D%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83.html">
+   第 6 章　广义线性模型｜用 Python 动手学统计学
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-3-logistic%E5%9B%9E%E5%BD%92.html">
+     第 6 章　广义线性模型｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-4-%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0.html">
+     第 6 章　广义线性模型｜用 Python 动手学统计学
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-5-%E6%B3%8A%E6%9D%BE%E5%9B%9E%E5%BD%92.html">
+     第 6 章　广义线性模型｜用 Python 动手学统计学
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7-4-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html">
+   第 7 章　统计学与机器学习｜用 Python 动手学统计学
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/2-4-认识numpy与pandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/2-4-认识numpy与pandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numpy-pandas">
+   第 4 节　认识 numpy 与 pandas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     1. 导入用于分析的功能
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     3. 实现：列表
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     5. 实现：数组
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     6. 实现：生成等差数列的方法
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     7. 实现：多种生成数组的方式
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     8. 实现：切片
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     9. 实现：数据帧
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     10. 实现：读取文件中的数据
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     11. 实现：连接数据帧
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     12. 实现：数据帧的列操作
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     13. 实现：数据帧的行操作
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     14. 补充：序列
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     15. 补充：函数文档
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="python-jupyter-notebook-python">
+<h1>第 2 章　Python 与 Jupyter Notebook 基础｜用 Python 动手学统计学<a class="headerlink" href="#python-jupyter-notebook-python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="numpy-pandas">
+<h2>第 4 节　认识 numpy 与 pandas<a class="headerlink" href="#numpy-pandas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>1. 导入用于分析的功能<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>3. 实现：列表<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">sample_list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>5. 实现：数组<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">sample_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 4, 5])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_array</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3, 4, 5, 6, 7])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_array</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 2,  4,  6,  8, 10])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span> <span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;1&#39;, &#39;2&#39;, &#39;A&#39;], dtype=&#39;&lt;U21&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 矩阵</span>
+<span class="n">sample_array_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]])</span>
+<span class="n">sample_array_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  2,  3,  4,  5],
+       [ 6,  7,  8,  9, 10]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 获取行数与列数</span>
+<span class="n">sample_array_2</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 5)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>6. 实现：生成等差数列的方法<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 4, 5])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.1, 0.3, 0.5, 0.7])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.1, 0.3, 0.5, 0.7])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>7. 实现：多种生成数组的方式<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 元素相同的数组</span>
+<span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;A&#39;], dtype=&#39;&lt;U1&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 存放 4 个 0</span>
+<span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 只有 0 的数组</span>
+<span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0., 0., 0., 0.])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 二维数组</span>
+<span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 0., 0.],
+       [0., 0., 0.]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 只有 1 的数组</span>
+<span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 1., 1.])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>8. 实现：切片<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 一维数组</span>
+<span class="n">d1_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">d1_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 4, 5])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 取得第一个元素</span>
+<span class="n">d1_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 获取索引中的 1 号和 2 号元素</span>
+<span class="n">d1_array</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 3])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 二维数组</span>
+<span class="n">d2_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]])</span>
+<span class="n">d2_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  2,  3,  4,  5],
+       [ 6,  7,  8,  9, 10]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d2_array</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d2_array</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([8, 9])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>9. 实现：数据帧<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;col1&#39;</span> <span class="p">:</span> <span class="n">sample_array</span><span class="p">,</span> 
+    <span class="s1">&#39;col2&#39;</span> <span class="p">:</span> <span class="n">sample_array</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s1">&#39;col3&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   col1  col2 col3
+0     1     2    A
+1     2     4    B
+2     3     6    C
+3     4     8    D
+4     5    10    E
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col1</th>
+      <th>col2</th>
+      <th>col3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>4</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>6</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>8</td>
+      <td>D</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>10</td>
+      <td>E</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>10. 实现：读取文件中的数据<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;2-4-1-sample_data.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">file_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   col1 col2
+0     1    A
+1     2    A
+2     3    B
+3     4    B
+4     5    C
+5     6    C
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">file_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>11. 实现：连接数据帧<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;col1&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span>
+    <span class="s1">&#39;col2&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">])</span>
+<span class="p">})</span>
+<span class="n">df_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;col1&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span>
+    <span class="s1">&#39;col2&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">])</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 在纵向上连接</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_1</span><span class="p">,</span> <span class="n">df_2</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   col1 col2
+0     1    A
+1     2    B
+2     3    C
+0     4    D
+1     5    E
+2     6    F
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 在横向上连接</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_1</span><span class="p">,</span> <span class="n">df_2</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   col1 col2  col1 col2
+0     1    A     4    D
+1     2    B     5    E
+2     3    C     6    F
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>12. 实现：数据帧的列操作<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 对象数据</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   col1  col2 col3
+0     1     2    A
+1     2     4    B
+2     3     6    C
+3     4     8    D
+4     5    10    E
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 按列名获取数据</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample_df</span><span class="o">.</span><span class="n">col2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     2
+1     4
+2     6
+3     8
+4    10
+Name: col2, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sample_df</span><span class="p">[</span><span class="s2">&quot;col2&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     2
+1     4
+2     6
+3     8
+4    10
+Name: col2, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sample_df</span><span class="p">[[</span><span class="s2">&quot;col2&quot;</span><span class="p">,</span> <span class="s2">&quot;col3&quot;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   col2 col3
+0     2    A
+1     4    B
+2     6    C
+3     8    D
+4    10    E
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 删除指定的列</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;col1&quot;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   col2 col3
+0     2    A
+1     4    B
+2     6    C
+3     8    D
+4    10    E
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>13. 实现：数据帧的行操作<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 获取前 3 行</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   col1  col2 col3
+0     1     2    A
+1     2     4    B
+2     3     6    C
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 获取第 1 行</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample_df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;index == 0&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   col1  col2 col3
+0     1     2    A
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 通过多种条件获取数据</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample_df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;col3 == &quot;A&quot;&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   col1  col2 col3
+0     1     2    A
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 按 OR 条件获取数据</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample_df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;col3 == &quot;A&quot; | col3 == &quot;D&quot;&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   col1  col2 col3
+0     1     2    A
+3     4     8    D
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 按 AND 条件获取数据</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample_df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;col3 == &quot;A&quot; &amp; col1 == 3&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Empty DataFrame
+Columns: [col1, col2, col3]
+Index: []
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 同时指定行和列的条件</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample_df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;col3 == &quot;A&quot;&#39;</span><span class="p">)[[</span><span class="s2">&quot;col2&quot;</span><span class="p">,</span> <span class="s2">&quot;col3&quot;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   col2 col3
+0     2    A
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>14. 补充：序列<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">sample_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">sample_df</span><span class="o">.</span><span class="n">col1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 转换为数组</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sample_df</span><span class="o">.</span><span class="n">col1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">sample_df</span><span class="o">.</span><span class="n">col1</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>15. 补充：函数文档<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">sample_df</span><span class="o">.</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method query in module pandas.core.frame:
+
+query(expr, inplace=False, **kwargs) method of pandas.core.frame.DataFrame instance
+    Query the columns of a DataFrame with a boolean expression.
+    
+    Parameters
+    ----------
+    expr : str
+        The query string to evaluate.
+    
+        You can refer to variables
+        in the environment by prefixing them with an &#39;@&#39; character like
+        ``@a + b``.
+    
+        You can refer to column names that are not valid Python variable names
+        by surrounding them in backticks. Thus, column names containing spaces
+        or punctuations (besides underscores) or starting with digits must be
+        surrounded by backticks. (For example, a column named &quot;Area (cm^2) would
+        be referenced as `Area (cm^2)`). Column names which are Python keywords
+        (like &quot;list&quot;, &quot;for&quot;, &quot;import&quot;, etc) cannot be used.
+    
+        For example, if one of your columns is called ``a a`` and you want
+        to sum it with ``b``, your query should be ```a a` + b``.
+    
+        .. versionadded:: 0.25.0
+            Backtick quoting introduced.
+    
+        .. versionadded:: 1.0.0
+            Expanding functionality of backtick quoting for more than only spaces.
+    
+    inplace : bool
+        Whether the query should modify the data in place or return
+        a modified copy.
+    **kwargs
+        See the documentation for :func:`eval` for complete details
+        on the keyword arguments accepted by :meth:`DataFrame.query`.
+    
+    Returns
+    -------
+    DataFrame or None
+        DataFrame resulting from the provided query expression or
+        None if ``inplace=True``.
+    
+    See Also
+    --------
+    eval : Evaluate a string describing operations on
+        DataFrame columns.
+    DataFrame.eval : Evaluate a string describing operations on
+        DataFrame columns.
+    
+    Notes
+    -----
+    The result of the evaluation of this expression is first passed to
+    :attr:`DataFrame.loc` and if that fails because of a
+    multidimensional key (e.g., a DataFrame) then the result will be passed
+    to :meth:`DataFrame.__getitem__`.
+    
+    This method uses the top-level :func:`eval` function to
+    evaluate the passed query.
+    
+    The :meth:`~pandas.DataFrame.query` method uses a slightly
+    modified Python syntax by default. For example, the ``&amp;`` and ``|``
+    (bitwise) operators have the precedence of their boolean cousins,
+    :keyword:`and` and :keyword:`or`. This *is* syntactically valid Python,
+    however the semantics are different.
+    
+    You can change the semantics of the expression by passing the keyword
+    argument ``parser=&#39;python&#39;``. This enforces the same semantics as
+    evaluation in Python space. Likewise, you can pass ``engine=&#39;python&#39;``
+    to evaluate an expression using Python itself as a backend. This is not
+    recommended as it is inefficient compared to using ``numexpr`` as the
+    engine.
+    
+    The :attr:`DataFrame.index` and
+    :attr:`DataFrame.columns` attributes of the
+    :class:`~pandas.DataFrame` instance are placed in the query namespace
+    by default, which allows you to treat both the index and columns of the
+    frame as a column in the frame.
+    The identifier ``index`` is used for the frame index; you can also
+    use the name of the index to identify it in a query. Please note that
+    Python keywords may not be used as identifiers.
+    
+    For further details and examples see the ``query`` documentation in
+    :ref:`indexing &lt;indexing.query&gt;`.
+    
+    *Backtick quoted variables*
+    
+    Backtick quoted variables are parsed as literal Python code and
+    are converted internally to a Python valid identifier.
+    This can lead to the following problems.
+    
+    During parsing a number of disallowed characters inside the backtick
+    quoted string are replaced by strings that are allowed as a Python identifier.
+    These characters include all operators in Python, the space character, the
+    question mark, the exclamation mark, the dollar sign, and the euro sign.
+    For other characters that fall outside the ASCII range (U+0001..U+007F)
+    and those that are not further specified in PEP 3131,
+    the query parser will raise an error.
+    This excludes whitespace different than the space character,
+    but also the hashtag (as it is used for comments) and the backtick
+    itself (backtick can also not be escaped).
+    
+    In a special case, quotes that make a pair around a backtick can
+    confuse the parser.
+    For example, ```it&#39;s` &gt; `that&#39;s``` will raise an error,
+    as it forms a quoted string (``&#39;s &gt; `that&#39;``) with a backtick inside.
+    
+    See also the Python documentation about lexical analysis
+    (https://docs.python.org/3/reference/lexical_analysis.html)
+    in combination with the source code in :mod:`pandas.core.computation.parsing`.
+    
+    Examples
+    --------
+    &gt;&gt;&gt; df = pd.DataFrame({&#39;A&#39;: range(1, 6),
+    ...                    &#39;B&#39;: range(10, 0, -2),
+    ...                    &#39;C C&#39;: range(10, 5, -1)})
+    &gt;&gt;&gt; df
+       A   B  C C
+    0  1  10   10
+    1  2   8    9
+    2  3   6    8
+    3  4   4    7
+    4  5   2    6
+    &gt;&gt;&gt; df.query(&#39;A &gt; B&#39;)
+       A  B  C C
+    4  5  2    6
+    
+    The previous expression is equivalent to
+    
+    &gt;&gt;&gt; df[df.A &gt; df.B]
+       A  B  C C
+    4  5  2    6
+    
+    For columns with spaces in their name, you can use backtick quoting.
+    
+    &gt;&gt;&gt; df.query(&#39;B == `C C`&#39;)
+       A   B  C C
+    0  1  10   10
+    
+    The previous expression is equivalent to
+    
+    &gt;&gt;&gt; df[df.B == df[&#39;C C&#39;]]
+       A   B  C C
+    0  1  10   10
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="2-3-Python%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">第 2 章　Python 与 Jupyter Notebook 基础｜用 Python 动手学统计学</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="3-1-%E4%BD%BF%E7%94%A8Python%E8%BF%9B%E8%A1%8C%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%8D%95%E5%8F%98%E9%87%8F.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

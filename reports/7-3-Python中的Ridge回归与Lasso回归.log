@@ -1,0 +1,48 @@
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 1087, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/anaconda3/lib/python3.7/asyncio/base_events.py", line 583, in run_until_complete
+    return future.result()
+  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 541, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 832, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 740, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# 对不同的 α 值进行 Lasso 回归
+lasso_alphas, lasso_coefs, _ = linear_model.lasso_path(
+    X, y, fit_intercept = False)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-21-1f9607fdda71>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# 对不同的 α 值进行 Lasso 回归[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m lasso_alphas, lasso_coefs, _ = linear_model.lasso_path(
+[0;32m----> 3[0;31m     X, y, fit_intercept = False)
+[0m
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/sklearn/linear_model/_coordinate_descent.py[0m in [0;36mlasso_path[0;34m(X, y, eps, n_alphas, alphas, precompute, Xy, copy_X, coef_init, verbose, return_n_iter, positive, **params)[0m
+[1;32m    359[0m         [0mpositive[0m[0;34m=[0m[0mpositive[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    360[0m         [0mreturn_n_iter[0m[0;34m=[0m[0mreturn_n_iter[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 361[0;31m         [0;34m**[0m[0mparams[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    362[0m     )
+[1;32m    363[0m [0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/sklearn/linear_model/_coordinate_descent.py[0m in [0;36menet_path[0;34m(X, y, l1_ratio, eps, n_alphas, alphas, precompute, Xy, copy_X, coef_init, verbose, return_n_iter, positive, check_input, **params)[0m
+[1;32m    505[0m [0;34m[0m[0m
+[1;32m    506[0m     [0;32mif[0m [0mlen[0m[0;34m([0m[0mparams[0m[0;34m)[0m [0;34m>[0m [0;36m0[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 507[0;31m         [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m"Unexpected parameters in params"[0m[0;34m,[0m [0mparams[0m[0;34m.[0m[0mkeys[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    508[0m [0;34m[0m[0m
+[1;32m    509[0m     [0;31m# We expect X and y to be already Fortran ordered when bypassing[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: ('Unexpected parameters in params', dict_keys(['fit_intercept']))
+ValueError: ('Unexpected parameters in params', dict_keys(['fit_intercept']))
+
