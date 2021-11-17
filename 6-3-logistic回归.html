@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>第 6 章 广义线性模型｜用 Python 动手学统计学 &#8212; Stats Book</title>
+    <title>第 3 节 logistic 回归 &#8212; Stats Book</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,8 +51,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="第 6 章 广义线性模型｜用 Python 动手学统计学" href="6-4-%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0.html" />
-    <link rel="prev" title="第 6 章 广义线性模型｜用 Python 动手学统计学" href="6-1-%E5%90%84%E7%A7%8D%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83.html" />
+    <link rel="next" title="第 4 节 广义线性模型的评估" href="6-4-%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0.html" />
+    <link rel="prev" title="第 1 节 各种概率分布" href="6-1-%E5%90%84%E7%A7%8D%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -86,20 +86,15 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="index.html">
+  <a class="reference internal" href="README.html">
    statsbook
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Part 1
- </span>
-</p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="2-2-%E8%AE%A4%E8%AF%86Jupyter-Notebook.html">
-   第 2 章　Python 与 Jupyter Notebook 基础｜用 Python 动手学统计学
+   第 2 节　认识 Jupyter Notebook
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -119,56 +114,49 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-3-%E5%9F%BA%E4%BA%8Ematplotlib-seaborn%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96.html">
-     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+     第 3 节　基于 matplotlib、seaborn 的数据可视化
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-4-%E7%94%A8Python%E6%A8%A1%E6%8B%9F%E6%8A%BD%E6%A0%B7.html">
-     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+     第 4 节　用 Python 模拟抽样
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-5-%E6%A0%B7%E6%9C%AC%E7%BB%9F%E8%AE%A1%E9%87%8F%E7%9A%84%E6%80%A7%E8%B4%A8.html">
-     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+     第 5 节　样本统计量的性质
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-6-%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">
-     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+     第 6 节　正态分布及其应用
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-7-%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1.html">
-     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+     第 7 节　参数估计
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-8-%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C.html">
-     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+     第 8 节　假设检验
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-9-%E5%9D%87%E5%80%BC%E5%B7%AE%E7%9A%84%E6%A3%80%E9%AA%8C.html">
-     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+     第 9 节　均值差的检验
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3-10-%E5%88%97%E8%81%94%E8%A1%A8%E6%A3%80%E9%AA%8C.html">
-     第 3 章　使用 Pyhton 进行数据分析｜用 Python 动手学统计学
+     第 10 节　列联表检验
     </a>
    </li>
   </ul>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Part 2
- </span>
-</p>
-<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="5-1-%E4%B8%80%E5%85%83%E5%9B%9E%E5%BD%92.html">
-   第 5 章　正态线性模型｜用 Python 动手学统计学
+   第 1 节　含有单个连续型解释变量的模型（一元回归）
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -178,14 +166,19 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="5-2-%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90.html">
-     第 5 章　正态线性模型｜用 Python 动手学统计学
+     第 2 节　方差分析
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-3-%E5%90%AB%E6%9C%89%E5%A4%9A%E4%B8%AA%E8%A7%A3%E9%87%8A%E5%8F%98%E9%87%8F%E7%9A%84%E6%A8%A1%E5%9E%8B.html">
+     第 3 节　含有多个解释变量的模型
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="6-1-%E5%90%84%E7%A7%8D%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83.html">
-   第 6 章　广义线性模型｜用 Python 动手学统计学
+   第 1 节　各种概率分布
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -195,25 +188,37 @@
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     第 6 章　广义线性模型｜用 Python 动手学统计学
+     第 3 节　logistic 回归
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-4-%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0.html">
-     第 6 章　广义线性模型｜用 Python 动手学统计学
+     第 4 节　广义线性模型的评估
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-5-%E6%B3%8A%E6%9D%BE%E5%9B%9E%E5%BD%92.html">
-     第 6 章　广义线性模型｜用 Python 动手学统计学
+     第 5 节　泊松回归
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7-4-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html">
-   第 7 章　统计学与机器学习｜用 Python 动手学统计学
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="7-3-Python%E4%B8%AD%E7%9A%84Ridge%E5%9B%9E%E5%BD%92%E4%B8%8ELasso%E5%9B%9E%E5%BD%92.html">
+   第 3 节　Python 中的 Ridge 回归与 Lasso 回归
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-4-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html">
+     第 4 节　线性模型与神经网络
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -304,8 +309,8 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#logistic">
-   第 3 节　logistic 回归
+  <a class="reference internal nav-link" href="#python">
+   第 6 章　广义线性模型｜用 Python 动手学统计学
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -361,10 +366,10 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="python">
-<h1>第 6 章　广义线性模型｜用 Python 动手学统计学<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="logistic">
-<h2>第 3 节　logistic 回归<a class="headerlink" href="#logistic" title="Permalink to this headline">¶</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="logistic">
+<h1>第 3 节　logistic 回归<a class="headerlink" href="#logistic" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="python">
+<h2>第 6 章　广义线性模型｜用 Python 动手学统计学<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
 <h3>10. 环境准备<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
@@ -513,7 +518,7 @@ Use an instance of a link class instead.
   <th>Date:</th>            <td>Wed, 17 Nov 2021</td> <th>  Deviance:          </th> <td>  68.028</td>
 </tr>
 <tr>
-  <th>Time:</th>                <td>17:18:00</td>     <th>  Pearson chi2:      </th>  <td>  84.9</td> 
+  <th>Time:</th>                <td>18:00:57</td>     <th>  Pearson chi2:      </th>  <td>  84.9</td> 
 </tr>
 <tr>
   <th>No. Iterations:</th>          <td>6</td>        <th>                     </th>     <td> </td>   
@@ -578,7 +583,7 @@ Use an instance of a link class instead.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x2263ec2d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x222d480d0&gt;
 </pre></div>
 </div>
 <img alt="_images/6-3-logistic回归_16_1.png" src="_images/6-3-logistic回归_16_1.png" />
@@ -715,13 +720,13 @@ dtype: float64
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">第 6 章　广义线性模型｜用 Python 动手学统计学</p>
+            <p class="prev-next-title">第 1 节　各种概率分布</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="6-4-%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">第 6 章　广义线性模型｜用 Python 动手学统计学</p>
+        <p class="prev-next-title">第 4 节　广义线性模型的评估</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
