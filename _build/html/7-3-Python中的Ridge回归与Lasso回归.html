@@ -1,0 +1,1104 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第 7 章 统计学与机器学习 &#8212; Stats Book</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="第 4 节 线性模型与神经网络" href="7-4-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html" />
+    <link rel="prev" title="第 5 节 泊松回归" href="6-5-%E6%B3%8A%E6%9D%BE%E5%9B%9E%E5%BD%92.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Stats Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Python Stats Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-2-%E8%AE%A4%E8%AF%86Jupyter-Notebook.html">
+   第 2 章 Python 与 Jupyter Notebook 基础
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="3-1-%E4%BD%BF%E7%94%A8Python%E8%BF%9B%E8%A1%8C%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%8D%95%E5%8F%98%E9%87%8F.html">
+   第 3 章　使用 Pyhton 进行数据分析
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-2-%E4%BD%BF%E7%94%A8Python%E8%BF%9B%E8%A1%8C%E6%8F%8F%E8%BF%B0%E7%BB%9F%E8%AE%A1%E5%A4%9A%E5%8F%98%E9%87%8F.html">
+     第 2 节　使用 Python 进行描述统计：多变量
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-3-%E5%9F%BA%E4%BA%8Ematplotlib-seaborn%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96.html">
+     第 3 节　基于 matplotlib、seaborn 的数据可视化
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-4-%E7%94%A8Python%E6%A8%A1%E6%8B%9F%E6%8A%BD%E6%A0%B7.html">
+     第 4 节　用 Python 模拟抽样
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-5-%E6%A0%B7%E6%9C%AC%E7%BB%9F%E8%AE%A1%E9%87%8F%E7%9A%84%E6%80%A7%E8%B4%A8.html">
+     第 5 节　样本统计量的性质
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-6-%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8.html">
+     第 6 节　正态分布及其应用
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-7-%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1.html">
+     第 7 节　参数估计
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-8-%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C.html">
+     第 8 节　假设检验
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-9-%E5%9D%87%E5%80%BC%E5%B7%AE%E7%9A%84%E6%A3%80%E9%AA%8C.html">
+     第 9 节　均值差的检验
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-10-%E5%88%97%E8%81%94%E8%A1%A8%E6%A3%80%E9%AA%8C.html">
+     第 10 节　列联表检验
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="5-1-%E4%B8%80%E5%85%83%E5%9B%9E%E5%BD%92.html">
+   第 5 章　正态线性模型
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-2-%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90.html">
+     第 2 节　方差分析
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-3-%E5%90%AB%E6%9C%89%E5%A4%9A%E4%B8%AA%E8%A7%A3%E9%87%8A%E5%8F%98%E9%87%8F%E7%9A%84%E6%A8%A1%E5%9E%8B.html">
+     第 3 节　含有多个解释变量的模型
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="6-1-%E5%90%84%E7%A7%8D%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83.html">
+   第 6 章　广义线性模型
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-3-logistic%E5%9B%9E%E5%BD%92.html">
+     第 3 节　logistic 回归
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-4-%E5%B9%BF%E4%B9%89%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0.html">
+     第 4 节　广义线性模型的评估
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-5-%E6%B3%8A%E6%9D%BE%E5%9B%9E%E5%BD%92.html">
+     第 5 节　泊松回归
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   第 7 章　统计学与机器学习
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-4-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html">
+     第 4 节　线性模型与神经网络
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/7-3-Python中的Ridge回归与Lasso回归.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/7-3-Python中的Ridge回归与Lasso回归.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-ridge-lasso">
+   第 3 节　Python 中的 Ridge 回归与 Lasso 回归
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     2. 环境准备
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     3. 实现：标准化
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     4. 定义响应变量
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     5. 实现：普通最小二乘法
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sklearn">
+     6. 实现：使用 sklearn 实现线性回归
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ridge">
+     7. 实现：Ridge 回归：惩罚项的影响
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     8. 实现：Ridge 回归：确定最佳正则化强度
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lasso">
+     9. 实现：Lasso 回归：惩罚指标的影响
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     10. 实现：Lasso 回归：确定最佳正则化强度
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>第 7 章　统计学与机器学习<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="python-ridge-lasso">
+<h2>第 3 节　Python 中的 Ridge 回归与 Lasso 回归<a class="headerlink" href="#python-ridge-lasso" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>2. 环境准备<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 用于数值计算的库</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="c1"># 用于绘图的库</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
+<span class="c1"># 用于估计统计模型的库 (部分版本会报出警告信息)</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="c1"># 用于机器学习的库</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+
+<span class="c1"># 设置浮点数打印精度</span>
+<span class="o">%</span><span class="k">precision</span> 3
+<span class="c1"># 在 Jupyter Notebook 里显示图形</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 读入示例数据</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;7-3-1-large-data.csv&quot;</span><span class="p">)</span>
+<span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X_1</th>
+      <th>X_2</th>
+      <th>X_3</th>
+      <th>X_4</th>
+      <th>X_5</th>
+      <th>X_6</th>
+      <th>X_7</th>
+      <th>X_8</th>
+      <th>X_9</th>
+      <th>X_10</th>
+      <th>...</th>
+      <th>X_91</th>
+      <th>X_92</th>
+      <th>X_93</th>
+      <th>X_94</th>
+      <th>X_95</th>
+      <th>X_96</th>
+      <th>X_97</th>
+      <th>X_98</th>
+      <th>X_99</th>
+      <th>X_100</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0000</td>
+      <td>0.5000</td>
+      <td>0.3333</td>
+      <td>0.2500</td>
+      <td>0.2000</td>
+      <td>0.1667</td>
+      <td>0.1429</td>
+      <td>0.1250</td>
+      <td>0.1111</td>
+      <td>0.1000</td>
+      <td>...</td>
+      <td>0.0110</td>
+      <td>0.0109</td>
+      <td>0.0108</td>
+      <td>0.0106</td>
+      <td>0.0105</td>
+      <td>0.0104</td>
+      <td>0.0103</td>
+      <td>0.0102</td>
+      <td>0.0101</td>
+      <td>0.0100</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.5000</td>
+      <td>0.3333</td>
+      <td>0.2500</td>
+      <td>0.2000</td>
+      <td>0.1667</td>
+      <td>0.1429</td>
+      <td>0.1250</td>
+      <td>0.1111</td>
+      <td>0.1000</td>
+      <td>0.0909</td>
+      <td>...</td>
+      <td>0.0109</td>
+      <td>0.0108</td>
+      <td>0.0106</td>
+      <td>0.0105</td>
+      <td>0.0104</td>
+      <td>0.0103</td>
+      <td>0.0102</td>
+      <td>0.0101</td>
+      <td>0.0100</td>
+      <td>0.0099</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.3333</td>
+      <td>0.2500</td>
+      <td>0.2000</td>
+      <td>0.1667</td>
+      <td>0.1429</td>
+      <td>0.1250</td>
+      <td>0.1111</td>
+      <td>0.1000</td>
+      <td>0.0909</td>
+      <td>0.0833</td>
+      <td>...</td>
+      <td>0.0108</td>
+      <td>0.0106</td>
+      <td>0.0105</td>
+      <td>0.0104</td>
+      <td>0.0103</td>
+      <td>0.0102</td>
+      <td>0.0101</td>
+      <td>0.0100</td>
+      <td>0.0099</td>
+      <td>0.0098</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 100 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>3. 实现：标准化<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># X_1 的均值</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">X_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:2: DeprecationWarning: scipy.mean is deprecated and will be removed in SciPy 2.0.0, use numpy.mean instead
+  
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.037
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 所有解释变量的均值</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:2: DeprecationWarning: scipy.mean is deprecated and will be removed in SciPy 2.0.0, use numpy.mean instead
+  
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X_1    0.037272
+X_2    0.030649
+X_3    0.027360
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 标准化</span>
+<span class="n">X</span> <span class="o">-=</span> <span class="n">sp</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">/=</span> <span class="n">sp</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ddof</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:2: DeprecationWarning: scipy.mean is deprecated and will be removed in SciPy 2.0.0, use numpy.mean instead
+  
+/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:3: DeprecationWarning: scipy.std is deprecated and will be removed in SciPy 2.0.0, use numpy.std instead
+  This is separate from the ipykernel package so we can avoid doing imports until
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 检验</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:2: DeprecationWarning: scipy.mean is deprecated and will be removed in SciPy 2.0.0, use numpy.mean instead
+  
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X_1    0.0
+X_2   -0.0
+X_3   -0.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 检验</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">ddof</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:2: DeprecationWarning: scipy.std is deprecated and will be removed in SciPy 2.0.0, use numpy.std instead
+  
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X_1    1.0
+X_2    1.0
+X_3    1.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>4. 定义响应变量<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 定义响应变量</span>
+
+<span class="c1"># 服从正态分布的噪声</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">noise</span> <span class="o">=</span>  <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># 设正确的系数为 5, 定义响应变量</span>
+<span class="n">y</span> <span class="o">=</span>  <span class="n">X</span><span class="o">.</span><span class="n">X_1</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">noise</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 把响应变量和解释变量放在一起</span>
+<span class="n">large_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;y&quot;</span><span class="p">:</span><span class="n">y</span><span class="p">}),</span> <span class="n">X</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1"># 绘制散点图</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;X_1&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">large_data</span><span class="p">,</span>
+              <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x226e85d50&gt;
+</pre></div>
+</div>
+<img alt="_images/7-3-Python中的Ridge回归与Lasso回归_12_1.png" src="_images/7-3-Python中的Ridge回归与Lasso回归_12_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>5. 实现：普通最小二乘法<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lm_statsmodels</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">endog</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">exog</span> <span class="o">=</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">lm_statsmodels</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X_1     14.755018
+X_2    -87.462851
+X_3    211.743136
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sklearn">
+<h3>6. 实现：使用 sklearn 实现线性回归<a class="headerlink" href="#sklearn" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 指定模型的结构</span>
+<span class="n">lm_sklearn</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+<span class="c1"># 指定数据来源并估计模型</span>
+<span class="n">lm_sklearn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="c1"># 所估计的参数 (数组型)</span>
+<span class="n">lm_sklearn</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.476e+01, -8.746e+01,  2.117e+02, -9.415e+01, -6.817e+01,
+       -9.284e+01,  1.761e+00,  8.170e+01,  6.680e+01,  2.788e+01,
+       -3.288e+01,  6.818e+01, -1.699e+01,  2.208e+01, -4.855e+01,
+       -3.390e+01, -4.536e+01,  9.728e+00,  2.481e+01,  1.858e+00,
+        1.599e+00, -2.838e+01,  6.477e+00, -5.980e+01,  3.532e+01,
+       -1.302e+01,  4.108e+01, -4.303e+01,  5.247e+01,  1.920e+00,
+        3.342e+01,  8.490e+00,  8.329e+00, -2.293e+01, -3.577e+01,
+       -1.337e+01,  3.178e+01, -2.018e+01, -2.654e+01, -3.523e+01,
+        1.927e+01,  4.823e+01, -1.655e+00,  5.749e-01, -1.893e+01,
+        7.370e-01,  1.047e+01, -7.732e+00, -1.854e+00, -2.559e-01,
+       -5.045e+00, -4.227e+00,  2.523e+01,  1.616e+01, -1.310e+01,
+        6.455e+00, -1.332e+01, -2.291e+01, -1.202e+01,  7.745e+00,
+        1.755e+01,  5.997e+00,  4.648e+00,  4.120e+00, -1.825e+00,
+        5.366e+00,  4.546e+00, -2.598e+00, -4.091e+00,  7.496e+00,
+        3.100e+01,  1.530e+01, -5.323e+00, -1.509e+01, -3.801e+00,
+       -6.584e+00, -7.203e-02, -4.237e+00,  3.355e+00,  3.176e+00,
+        6.025e+00, -2.422e-01,  2.628e+00, -2.131e-02, -8.349e+00,
+       -5.091e+00, -5.060e+00, -4.779e+00,  7.645e+00,  1.797e+00,
+        4.276e+00,  1.418e-01,  2.800e+00,  3.146e+00, -5.188e+00,
+       -2.479e+00, -1.306e+01, -5.545e+00, -2.923e+00,  2.945e+00])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ridge">
+<h3>7. 实现：Ridge 回归：惩罚项的影响<a class="headerlink" href="#ridge" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 生成 50 个 α</span>
+<span class="n">n_alphas</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">ridge_alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">n_alphas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 参考</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">ridge_alphas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:2: DeprecationWarning: scipy.log10 is deprecated and will be removed in SciPy 2.0.0, use numpy.lib.scimath.log10 instead
+  
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-2.   , -1.945, -1.89 , -1.835, -1.78 , -1.724, -1.669, -1.614,
+       -1.559, -1.504, -1.449, -1.394, -1.339, -1.284, -1.229, -1.173,
+       -1.118, -1.063, -1.008, -0.953, -0.898, -0.843, -0.788, -0.733,
+       -0.678, -0.622, -0.567, -0.512, -0.457, -0.402, -0.347, -0.292,
+       -0.237, -0.182, -0.127, -0.071, -0.016,  0.039,  0.094,  0.149,
+        0.204,  0.259,  0.314,  0.369,  0.424,  0.48 ,  0.535,  0.59 ,
+        0.645,  0.7  ])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 对不同的 α 值进行 Ridge 回归</span>
+
+<span class="c1"># 存放已估计的回归系数的列表</span>
+<span class="n">ridge_coefs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># 使用 for 循环多次估计 Ridge 回归</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ridge_alphas</span><span class="p">:</span>
+    <span class="n">ridge</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">fit_intercept</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">ridge</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">ridge_coefs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ridge</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 转换为数组</span>
+<span class="n">ridge_coefs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ridge_coefs</span><span class="p">)</span>
+<span class="n">ridge_coefs</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(50, 100)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 参考</span>
+<span class="n">log_alphas</span> <span class="o">=</span> <span class="o">-</span><span class="n">sp</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">ridge_alphas</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">log_alphas</span><span class="p">,</span> <span class="n">ridge_coefs</span><span class="p">[::,</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">log_alphas</span><span class="p">,</span> <span class="n">ridge_coefs</span><span class="p">[::,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">log_alphas</span><span class="p">)</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">log_alphas</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.3</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mf">10.5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:2: DeprecationWarning: scipy.log10 is deprecated and will be removed in SciPy 2.0.0, use numpy.lib.scimath.log10 instead
+  
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-8.000, 10.500)
+</pre></div>
+</div>
+<img alt="_images/7-3-Python中的Ridge回归与Lasso回归_22_2.png" src="_images/7-3-Python中的Ridge回归与Lasso回归_22_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 横轴为 -log10(α), 纵轴为系数的折线图</span>
+<span class="c1"># 无需重复 100 次即可自动得到 100 条线</span>
+
+<span class="c1"># 对 α 取对数</span>
+<span class="n">log_alphas</span> <span class="o">=</span> <span class="o">-</span><span class="n">sp</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">ridge_alphas</span><span class="p">)</span>
+<span class="c1"># 绘制曲线, 横轴为 -log10(α), 纵轴为系数</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">log_alphas</span><span class="p">,</span> <span class="n">ridge_coefs</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="c1"># 标出解释变量 X_1 的系数</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">log_alphas</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ridge_coefs</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;X_1&quot;</span><span class="p">)</span>
+<span class="c1"># X 轴的范围</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">log_alphas</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">log_alphas</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.3</span><span class="p">])</span>
+<span class="c1"># 轴标签</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Ridge&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;- log10(alpha)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Coefficients&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:5: DeprecationWarning: scipy.log10 is deprecated and will be removed in SciPy 2.0.0, use numpy.lib.scimath.log10 instead
+  &quot;&quot;&quot;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Coefficients&#39;)
+</pre></div>
+</div>
+<img alt="_images/7-3-Python中的Ridge回归与Lasso回归_23_2.png" src="_images/7-3-Python中的Ridge回归与Lasso回归_23_2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>8. 实现：Ridge 回归：确定最佳正则化强度<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 通过交叉验证法求最佳 α</span>
+<span class="n">ridge_best</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">RidgeCV</span><span class="p">(</span>
+    <span class="n">cv</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">alphas</span> <span class="o">=</span> <span class="n">ridge_alphas</span><span class="p">,</span> <span class="n">fit_intercept</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">ridge_best</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> 
+
+<span class="c1"># 最佳的 -log10(α)</span>
+<span class="o">-</span><span class="n">sp</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">ridge_best</span><span class="o">.</span><span class="n">alpha_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:7: DeprecationWarning: scipy.log10 is deprecated and will be removed in SciPy 2.0.0, use numpy.lib.scimath.log10 instead
+  import sys
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.23673469387755094
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 最佳 α</span>
+<span class="n">ridge_best</span><span class="o">.</span><span class="n">alpha_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5797827717179138
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 取最佳 α 时的回归系数</span>
+<span class="n">ridge_best</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4.463,  1.288,  0.293, -0.091, -0.201, -0.233, -0.215, -0.206,
+       -0.145, -0.135, -0.155, -0.046, -0.097, -0.017, -0.11 , -0.012,
+       -0.094,  0.013, -0.018, -0.031,  0.025, -0.029,  0.043, -0.087,
+        0.127,  0.021,  0.055, -0.077,  0.141, -0.007,  0.099,  0.116,
+       -0.044,  0.037, -0.034,  0.015,  0.123, -0.171, -0.007, -0.182,
+        0.09 ,  0.222,  0.035, -0.032, -0.008,  0.025,  0.338, -0.193,
+       -0.108,  0.212, -0.128, -0.246,  0.249,  0.128, -0.155,  0.27 ,
+        0.03 , -0.165, -0.178,  0.158, -0.011,  0.013,  0.194,  0.134,
+       -0.156, -0.018,  0.256,  0.223, -0.185,  0.006,  0.535,  0.181,
+       -0.348, -0.123,  0.226, -0.043, -0.115, -0.053,  0.209,  0.189,
+       -0.042, -0.205, -0.099,  0.059, -0.224,  0.15 , -0.039, -0.113,
+        0.21 ,  0.012,  0.129, -0.032, -0.022, -0.229, -0.198,  0.245,
+       -0.305, -0.396, -0.163,  0.164])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lasso">
+<h3>9. 实现：Lasso 回归：惩罚指标的影响<a class="headerlink" href="#lasso" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 对不同的 α 值进行 Lasso 回归</span>
+<span class="n">lasso_alphas</span><span class="p">,</span> <span class="n">lasso_coefs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">lasso_path</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fit_intercept</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">21</span><span class="o">-</span><span class="mi">1</span><span class="n">f9607fdda71</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># 对不同的 α 值进行 Lasso 回归</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">lasso_alphas</span><span class="p">,</span> <span class="n">lasso_coefs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">lasso_path</span><span class="p">(</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fit_intercept</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/sklearn/linear_model/_coordinate_descent.py</span> in <span class="ni">lasso_path</span><span class="nt">(X, y, eps, n_alphas, alphas, precompute, Xy, copy_X, coef_init, verbose, return_n_iter, positive, **params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">359</span>         <span class="n">positive</span><span class="o">=</span><span class="n">positive</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">360</span>         <span class="n">return_n_iter</span><span class="o">=</span><span class="n">return_n_iter</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">361</span>         <span class="o">**</span><span class="n">params</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">362</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">363</span> 
+
+<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/sklearn/linear_model/_coordinate_descent.py</span> in <span class="ni">enet_path</span><span class="nt">(X, y, l1_ratio, eps, n_alphas, alphas, precompute, Xy, copy_X, coef_init, verbose, return_n_iter, positive, check_input, **params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">505</span> 
+<span class="g g-Whitespace">    </span><span class="mi">506</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="nn">--&gt; 507         raise ValueError(&quot;Unexpected parameters</span> in <span class="ni">params&quot;, params.keys</span><span class="nt">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">508</span> 
+<span class="g g-Whitespace">    </span><span class="mi">509</span>     <span class="c1"># We expect X and y to be already Fortran ordered when bypassing</span>
+
+<span class="nn">ValueError: (&#39;Unexpected parameters</span> in <span class="ni">params&#39;, dict_keys</span><span class="nt">([&#39;fit_intercept&#39;]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lasso 回归的解路径图</span>
+
+<span class="c1"># 对 α 取对数</span>
+<span class="n">log_alphas</span> <span class="o">=</span> <span class="o">-</span><span class="n">sp</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">lasso_alphas</span><span class="p">)</span>
+<span class="c1"># 绘制曲线, 横轴为 -log10(α), 纵轴为系数</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">log_alphas</span><span class="p">,</span> <span class="n">lasso_coefs</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="c1"># 标出解释变量 X_1 的系数</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">log_alphas</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">lasso_coefs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;X_1&quot;</span><span class="p">)</span>
+<span class="c1"># X 轴的范围</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">log_alphas</span><span class="p">)</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">log_alphas</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.3</span><span class="p">])</span>
+<span class="c1"># 轴标签</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Lasso&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;- log10(alpha)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Coefficients&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.text.Text at 0x1e7a2ce3e48&gt;
+</pre></div>
+</div>
+<img alt="_images/7-3-Python中的Ridge回归与Lasso回归_30_1.png" src="_images/7-3-Python中的Ridge回归与Lasso回归_30_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>10. 实现：Lasso 回归：确定最佳正则化强度<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 通过交叉验证法求最佳的 α</span>
+<span class="n">lasso_best</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LassoCV</span><span class="p">(</span>
+    <span class="n">cv</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">alphas</span> <span class="o">=</span> <span class="n">lasso_alphas</span><span class="p">,</span> <span class="n">fit_intercept</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">lasso_best</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># 最佳的 -log(α)</span>
+<span class="o">-</span><span class="n">sp</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">lasso_best</span><span class="o">.</span><span class="n">alpha_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.301
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 最佳的 α</span>
+<span class="n">lasso_best</span><span class="o">.</span><span class="n">alpha_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.005
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 取最佳的 α 时的回归系数</span>
+<span class="n">lasso_best</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  5.336e+00,  -0.000e+00,  -0.000e+00,  -3.043e-01,  -4.121e-02,
+        -0.000e+00,  -0.000e+00,  -0.000e+00,  -0.000e+00,  -0.000e+00,
+        -0.000e+00,  -0.000e+00,  -0.000e+00,  -0.000e+00,  -0.000e+00,
+        -0.000e+00,  -0.000e+00,  -0.000e+00,  -0.000e+00,  -0.000e+00,
+        -0.000e+00,  -0.000e+00,  -0.000e+00,  -0.000e+00,  -0.000e+00,
+        -0.000e+00,  -0.000e+00,  -0.000e+00,   0.000e+00,  -0.000e+00,
+         0.000e+00,   0.000e+00,  -0.000e+00,   0.000e+00,   0.000e+00,
+         0.000e+00,   0.000e+00,  -0.000e+00,   0.000e+00,   0.000e+00,
+         0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,
+         0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,
+         0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,
+         0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,
+         0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,
+         0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,
+         8.425e-03,   0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,
+         0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,
+         0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,
+         0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,
+         0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00,
+         7.192e-04,   0.000e+00,   0.000e+00,   0.000e+00,   0.000e+00])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="6-5-%E6%B3%8A%E6%9D%BE%E5%9B%9E%E5%BD%92.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">第 5 节　泊松回归</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="7-4-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">第 4 节　线性模型与神经网络</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

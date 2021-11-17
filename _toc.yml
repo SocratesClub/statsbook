@@ -1,38 +1,36 @@
 format: jb-book
-root: index
-parts:
-  - caption: Part 1
-    chapters:
+root: README
 
-    - file: 2-2-认识Jupyter-Notebook
-      sections:
-        - file: 2-3-Python编程基础
-        - file: 2-4-认识numpy与pandas
+chapters:
 
-    - file: 3-1-使用Python进行描述统计单变量
-      sections:
-        - file: 3-2-使用Python进行描述统计多变量
-        - file: 3-3-基于matplotlib-seaborn的数据可视化
-        - file: 3-4-用Python模拟抽样
-        - file: 3-5-样本统计量的性质
-        - file: 3-6-正态分布及其应用
-        - file: 3-7-参数估计
-        - file: 3-8-假设检验
-        - file: 3-9-均值差的检验
-        - file: 3-10-列联表检验
+- file: 2-2-认识Jupyter-Notebook
+  sections:
+    - file: 2-3-Python编程基础
+    - file: 2-4-认识numpy与pandas
 
-  - caption: Part 2
-    chapters:
+- file: 3-1-使用Python进行描述统计单变量
+  sections:
+    - file: 3-2-使用Python进行描述统计多变量
+    - file: 3-3-基于matplotlib-seaborn的数据可视化
+    - file: 3-4-用Python模拟抽样
+    - file: 3-5-样本统计量的性质
+    - file: 3-6-正态分布及其应用
+    - file: 3-7-参数估计
+    - file: 3-8-假设检验
+    - file: 3-9-均值差的检验
+    - file: 3-10-列联表检验
 
-    - file: 5-1-一元回归
-      sections:
-        - file: 5-2-方差分析
-        - file: 25-3-含有多个解释变量的模型
+- file: 5-1-一元回归
+  sections:
+    - file: 5-2-方差分析
+    - file: 5-3-含有多个解释变量的模型
 
-    - file: 6-1-各种概率分布
-      sections:
-        - file: 6-3-logistic回归
-        - file: 6-4-广义线性模型的评估
-        - file: 6-5-泊松回归
+- file: 6-1-各种概率分布
+  sections:
+    - file: 6-3-logistic回归
+    - file: 6-4-广义线性模型的评估
+    - file: 6-5-泊松回归
 
+- file: 7-3-Python中的Ridge回归与Lasso回归
+  sections:
     - file: 7-4-线性模型与神经网络
